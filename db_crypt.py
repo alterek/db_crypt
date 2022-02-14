@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import PySimpleGUI as sg
 from crypt_mode import crypt_mode
@@ -26,14 +27,15 @@ def open_db(path):
         columns.append(tab_cols)
 
 
-open_db('C:/sqlite/cards.db')
+curdir = os.path.abspath(os.curdir)
+open_db(curdir + '/cards.db')
 
 
-layout = [[sg.In(default_text='C:/sqlite/cards.db', key='filebrowse', enable_events=True, visible=True),
+layout = [[sg.In(default_text=curdir + '/cards.db', size=(50, 5), key='filebrowse', enable_events=True, visible=True),
            sg.FileBrowse(file_types=(("Database Files", "*.db"),),
-                         initial_folder='C:/sqlite/', target='filebrowse')],
+                         initial_folder=curdir, target='filebrowse')],
           [sg.Text('Таблицы')],
-          [sg.Listbox(values=tables, size=(40, 5), key='table'), sg.Button('Удалить')],
+          [sg.Listbox(values=tables, size=(45, 5), key='table'), sg.Button('Удалить')],
           [sg.Button('Поиск'), sg.Button('Шифрование'), sg.Button('Выход')]
           ]
 
