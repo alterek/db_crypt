@@ -27,7 +27,7 @@ def open_db(path):
         columns.append(tab_cols)
 
 
-curdir = os.path.abspath(os.curdir)
+curdir = os.path.dirname(os.path.abspath(__file__))
 open_db(curdir + '/cards.db')
 
 
