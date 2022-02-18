@@ -50,6 +50,8 @@ def search_mode(table, columns, val, con):
                 window_2['image'].update(data=im)
             except UnidentifiedImageError:
                 pass
+            except TypeError:
+                pass
         elif event == 'Искать':
             if values['fp'] not in values['list'] and values['ch']:
                 sg.popup_error('Столбец с изорабражением подлежит дешифровке')
