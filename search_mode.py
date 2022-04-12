@@ -54,7 +54,7 @@ def search_mode(table, columns, val, con):
                 pass
         elif event == 'Искать':
             if values['fp'] not in values['list'] and values['ch']:
-                sg.popup_error('Столбец с изорабражением подлежит дешифровке')
+                sg.popup_error('Столбец с изображением подлежит дешифровке')
                 continue
             if values['ind'] in values['list']:
                 sg.popup_error('Индексное поле не подлежит дешифровке')
